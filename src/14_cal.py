@@ -31,16 +31,25 @@ import sys
 import calendar
 from datetime import datetime
 
+l = len(sys.argv)
 
-response = input("Enter Date ").split(" ")
-length = len(response)
-now = datetime.now()
 
-if response[0] == "":
-   print(calendar.month(now.year, now.month))
-elif length == 1:
-   print(calendar.month(now.year, int(response[0])))
-elif length == 2:
-   print(calendar.month(int(response[1]), int(response[0])))
+
+if l == 1:
+   month = datetime.now().month
+   year = datetime.now().year
+elif l == 2:
+  month = int(sys.argv[1])
+  year = datetime.now().year
+elif l == 3:
+   month = int(sys.argv[1])
+   year = int(sys.argv[2])
+
 else:
-   print("Enter the month then  year please!")
+   print("Enter the month then year please!")
+   sys.exit(1)
+
+cal = calendar.TextCalendar()
+
+cal.prmonthy(year, month)
+  

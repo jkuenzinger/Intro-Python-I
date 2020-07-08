@@ -10,6 +10,7 @@ for more info regarding list comprehensions.
 
 # Write a list comprehension to produce the array [1, 2, 3, 4, 5]
 
+# y = [item for item in range(1, 6)] this does the same thing as below do not need to append this way
 y = []
 
 for numbers in range(1,6):
@@ -19,6 +20,7 @@ print (y)
 
 # Write a list comprehension to produce the cubes of the numbers 0-9:
 # [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
+# y = [number ** 3 for number in range(0,10)] this does the same as below without having to append
 
 y = []
 for numbers in range(0,10):
