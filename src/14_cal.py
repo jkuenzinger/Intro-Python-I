@@ -31,23 +31,16 @@ import sys
 import calendar
 from datetime import datetime
 
-currentMonth = datetime.now().month
-currentYear = datetime.now().year
 
-try:
-  mm = int(sys.argv[1])
-  yy = int(sys.argv[2])
+response = input("Enter Date ").split(" ")
+length = len(response)
+now = datetime.now()
 
-except IndexError:
-  if len(sys.argv) == 2 and mm > 0 and mm < 13:
-    print(calendar.month(currentYear, mm))
-    sys.exit()
-  elif len(sys.argv) == 1:
-    print(calendar.month(currentYear, currentMonth))
-    sys.exit()
-
-if len(sys.argv) == 3 and mm > 0 and mm < 13:
-    print(calendar.month(yy, mm))
-    sys.exit()
-
-raise SystemExit(f"Program expects a positive integer between 1-12 for month and year (ex. 2015).")   
+if response[0] == "":
+   print(calendar.month(now.year, now.month))
+elif length == 1:
+   print(calendar.month(now.year, int(response[0])))
+elif length == 2:
+   print(calendar.month(int(response[1]), int(response[0])))
+else:
+   print("Enter the month then  year please!")
